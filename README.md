@@ -13,7 +13,7 @@ This is a loose/WIP roadmap for the package
 
 ### Phase 1 - Basic Scoring & Classical Test Theory
 
-- total scores and mean scores
+- total scores and mean scores (DONE)
 - CTT item difficulty
 - CTT item discrimination
 - Reliability coefficients (cronbach's alpha, McDonald's omega, coefficient H)
