@@ -1,6 +1,7 @@
 using eePsychometrics
 using Test
+using Random
 
 @testset "eePsychometrics.jl" begin
-    # Write your tests here.
+    include("test_ctt.jl")
 end

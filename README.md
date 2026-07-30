@@ -15,7 +15,7 @@ This is a loose/WIP roadmap for the package
 
 - total scores and mean scores (DONE)
 - CTT item difficulty (DONE)
-- CTT item discrimination
+- CTT item discrimination (DONE)
 - Reliability coefficients (cronbach's alpha, McDonald's omega, coefficient H)
 - Standard error of measurement (SEM)
 

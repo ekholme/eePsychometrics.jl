@@ -11,7 +11,8 @@ include("ctt.jl")
 include("types.jl")
 
 # export funcs
-export simulate_1pl,
+export
+    simulate_1pl,
     mean_scores,
     total_scores,
     item_difficulty_ctt,
