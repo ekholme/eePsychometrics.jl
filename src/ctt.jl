@@ -78,3 +78,45 @@ Calculates the CTT item difficulty (p-value) for a single item's response vector
 function item_difficulty_ctt(x::Vector{Int})
     return mean(x)
 end
+
+"""
+    item_discrimination_ctt(X::Matrix{Int})
+
+Calculates the CTT item discrimination (point-biserial correlation) for each item.
+
+This is the correlation between the score on a given item and the total score on the rest of the items.
+
+# Arguments
+- `X::Matrix{Int}`: An `N x M` matrix of item responses, where `N` is the number of respondents and `M` is the number of items.
+
+# Returns
+- A `Vector{Float64}` of length `M` containing the discrimination index for each item.
+"""
+function item_discrimination_ctt(X::Matrix{Int})
+    M = size(X, 2)
+    N = size(X, 1)
+
+    v = Vector{Float64}(undef, M)
+
+    for j ∈ 1:M
+        notj = setdiff(1:M, j)
+
+        x = X[:, j]
+        xind = findall(x .== 1)
+        notx = findall(x .== 0)
+
+        (isempty(xind) || isempty(notx)) && (v[j]=NaN; continue)
+
+        total_scores_rest = total_scores(X[:, notj])
+        X̄_1 = mean(total_scores_rest[xind])
+        X̄_0 = mean(total_scores_rest[notx])
+
+        p = mean(x)
+        S = std(total_scores_rest)
+
+        r = ((X̄_1 - X̄_0) / S) * √(p * (1 - p))
+
+        v[j] = r
+    end
+    return v
+end
