@@ -94,7 +94,6 @@ This is the correlation between the score on a given item and the total score on
 """
 function item_discrimination_ctt(X::Matrix{Int})
     M = size(X, 2)
-    N = size(X, 1)
 
     v = Vector{Float64}(undef, M)
 

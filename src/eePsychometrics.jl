@@ -8,6 +8,7 @@ using Random
 # include component files
 include("simulate.jl")
 include("ctt.jl")
+include("reliability.jl")
 include("types.jl")
 
 # export funcs
@@ -17,6 +18,7 @@ export
     total_scores,
     item_difficulty_ctt,
     item_discrimination_ctt,
+    cronbach_alpha,
     AbstractPsychometricModel,
     AbstractIRTModel,
     AbstractItem,
