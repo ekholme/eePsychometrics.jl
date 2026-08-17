@@ -19,6 +19,8 @@ export
     item_difficulty_ctt,
     item_discrimination_ctt,
     cronbach_alpha,
+    kr20,
+    sem,
     AbstractPsychometricModel,
     AbstractIRTModel,
     AbstractItem,

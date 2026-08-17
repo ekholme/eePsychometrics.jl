@@ -119,3 +119,51 @@ function item_discrimination_ctt(X::Matrix{Int})
     end
     return v
 end
+
+"""
+    sem(sd_total::Real, reliability::Real)
+    sem(X::Matrix{Int}; reliability_func=cronbach_alpha)
+
+Calculates the Standard Error of Measurement (SEM).
+
+The SEM estimates the standard deviation of a respondent's observed scores if they were to retake the test multiple times.
+
+# Arguments
+- `sd_total::Real`: The standard deviation of the total test scores.
+- `reliability::Real`: The reliability coefficient of the test (e.g., Cronbach's alpha, KR-20). Must be between 0 and 1.
+- `X::Matrix{Int}`: An `N x M` matrix of item responses.
+
+# Keyword Arguments
+- `reliability_func`: The function to calculate reliability. Defaults to `cronbach_alpha`. Must be one of `[cronbach_alpha, kr20]`.
+
+# Returns
+- A `Float64` representing the Standard Error of Measurement.
+
+# Examples
+```julia
+julia> X = [1 1 1 1; 1 1 0 1; 1 0 0 0; 0 0 0 0];
+
+julia> sem(X) # uses cronbach_alpha by default
+0.5773502691896257
+
+julia> sem(X, reliability_func=kr20) # kr20 and cronbach_alpha are identical for binary data
+0.5773502691896257
+
+julia> sem(std(total_scores(X)), cronbach_alpha(X)) # providing components directly
+0.5773502691896257
+```
+"""
+function sem(sd_total::Real, reliability::Real)
+    0 <= reliability <= 1 || throw(DomainError(reliability, "Reliability must be between 0 and 1."))
+    return sd_total * sqrt(1 - reliability)
+end
+
+function sem(X::Matrix{Int}; reliability_func=cronbach_alpha)
+    if !(reliability_func in (cronbach_alpha, kr20))
+        throw(ArgumentError("Unsupported reliability function. Use `cronbach_alpha` or `kr20`."))
+    end
+
+    sd_total = std(total_scores(X))
+    reliability = reliability_func(X)
+    return sem(sd_total, reliability)
+end

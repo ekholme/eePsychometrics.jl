@@ -16,8 +16,9 @@ This is a loose/WIP roadmap for the package
 - total scores and mean scores (DONE)
 - CTT item difficulty (DONE)
 - CTT item discrimination (DONE)
-- Reliability coefficients (cronbach's alpha, McDonald's omega, coefficient H)
-- Standard error of measurement (SEM)
+- Reliability coefficients (cronbach's alpha (DONE), KR20 (DONE), McDonald's omega, coefficient H)
+- Standard error of measurement (SEM) (DONE)
+- Write tests for the above
 
 ### Phase 2 - IRT Core Probabilities
 
@@ -27,6 +28,7 @@ Estimate item response functions for different model types (e.g. 1pl, 2pl, 3pl)
 - `item_information(item, theta)`: compute the item information I(theta)
 - `test_information(item_bank, theta)`: compute the test information for a given item bank (simply the sum of all of the item infos)
 - `expected_score(item_bank, theta)`: compute test characteristic curve values
+- Write tests for the above
 
 ### Phase 3 - Person Ability Estimation (Trait Scoring)
 
