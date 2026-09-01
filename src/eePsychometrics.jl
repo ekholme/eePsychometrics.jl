@@ -10,6 +10,7 @@ include("simulate.jl")
 include("ctt.jl")
 include("reliability.jl")
 include("types.jl")
+include("irt_probs.jl")
 
 # export funcs
 export
@@ -21,6 +22,7 @@ export
     cronbach_alpha,
     kr20,
     sem,
+    prob,
     AbstractPsychometricModel,
     AbstractIRTModel,
     AbstractItem,

@@ -113,6 +113,8 @@ function item_discrimination_ctt(X::Matrix{Int})
         p = mean(x)
         S = std(total_scores_rest)
 
+        iszero(S) && (v[j]=0.0; continue)
+
         r = ((X̄_1 - X̄_0) / S) * √(p * (1 - p))
 
         v[j] = r

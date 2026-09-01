@@ -18,7 +18,7 @@ This is a loose/WIP roadmap for the package
 - CTT item discrimination (DONE)
 - Reliability coefficients (cronbach's alpha (DONE), KR20 (DONE), McDonald's omega, coefficient H)
 - Standard error of measurement (SEM) (DONE)
-- Write tests for the above
+- Write tests for the above (MOSTLY DONE)
 
 ### Phase 2 - IRT Core Probabilities
 
