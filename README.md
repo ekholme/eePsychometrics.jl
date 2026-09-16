@@ -24,8 +24,8 @@ This is a loose/WIP roadmap for the package
 
 Estimate item response functions for different model types (e.g. 1pl, 2pl, 3pl)
 
-- `prob(item, theta)`: compute item success probability given theta
-- `item_information(item, theta)`: compute the item information I(theta)
+- `prob(item, theta)`: compute item success probability given theta (DONE)
+- `item_information(item, theta)`: compute the item information I(theta) (DONE)
 - `test_information(item_bank, theta)`: compute the test information for a given item bank (simply the sum of all of the item infos)
 - `expected_score(item_bank, theta)`: compute test characteristic curve values
 - Write tests for the above

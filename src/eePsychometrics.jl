@@ -10,7 +10,7 @@ include("simulate.jl")
 include("ctt.jl")
 include("reliability.jl")
 include("types.jl")
-include("irt_probs.jl")
+include("irt_core.jl")
 
 # export funcs
 export
@@ -23,6 +23,7 @@ export
     kr20,
     sem,
     prob,
+    item_information,
     AbstractPsychometricModel,
     AbstractIRTModel,
     AbstractItem,
