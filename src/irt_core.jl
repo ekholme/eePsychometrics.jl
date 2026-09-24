@@ -62,3 +62,29 @@ end
 function item_information(item::AbstractItem, theta::Real)
     error("item_information() is not implemented for item type $(typeof(item)).")
 end
+
+
+"""
+    test_information(items, theta)
+
+Compute the test information for a collection of items (a test) at a given ability level (`theta`).
+"""
+function test_information(items::Vector{<:AbstractItem}, theta::Real)
+    return sum(item_information(item, theta) for item in items)
+end
+
+# Dispatch for ItemBank by forwarding its items vector
+test_information(item_bank::ItemBank, theta::Real) = test_information(item_bank.items, theta)
+
+"""
+    expected_score(items, theta)
+
+Compute the expected score for a collection of items (a test) at a given ability level (`theta`).
+This is also known as the Test Characteristic Curve (TCC).
+"""
+function expected_score(items::Vector{<:AbstractItem}, theta::Real)
+    return sum(prob(item, theta) for item in items)
+end
+
+# Dispatch for ItemBank by forwarding its items vector
+expected_score(item_bank::ItemBank, theta::Real) = expected_score(item_bank.items, theta)
