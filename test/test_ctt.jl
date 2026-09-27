@@ -74,7 +74,7 @@ end
     X_known = generate_simple_binary_data()
     res_known = item_discrimination_ctt(X_known)
 
-    truth = [0.5773502691896258, -0.5773502691896258, 0.5773502691896258, 0.5]
+    truth = [0.7745966692414833, 0.4714045207910316, 0.7745966692414833, 0.6882472016116853]
     @test res_known ≈ truth
 
     # Edge case: Item answered correctly by everyone

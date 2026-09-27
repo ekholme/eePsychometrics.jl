@@ -111,7 +111,7 @@ function item_discrimination_ctt(X::Matrix{Int})
         X̄_0 = mean(total_scores_rest[notx])
 
         p = mean(x)
-        S = std(total_scores_rest)
+        S = std(total_scores_rest; corrected=false)
 
         iszero(S) && (v[j]=0.0; continue)
 
