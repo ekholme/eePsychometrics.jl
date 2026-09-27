@@ -31,8 +31,6 @@ struct OnePLItem{T<:Real} <: AbstractItem
     b::T
 end
 
-OnePLItem(b::Real) = OnePLItem(Float64(b))
-
 """
     TwoPLItem(a, b)
 
