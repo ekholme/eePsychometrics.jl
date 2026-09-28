@@ -14,7 +14,7 @@ Calculates Cronbach's alpha, a measure of internal consistency reliability.
 julia> X = [1 1 1 1; 1 1 0 1; 1 0 0 0; 0 0 0 0];
 
 julia> cronbach_alpha(X)
-0.86666666
+0.8666666666666668
 
 ```
 """
@@ -50,7 +50,7 @@ reliability for dichotomously scored items.
 julia> X = [1 1 0; 1 0 0; 0 1 1; 1 1 1];
 
 julia> kr20(X)
-0.21052631578947385
+0.09375
 ```
 """
 function kr20(X::Matrix{Int})
@@ -61,7 +61,7 @@ function kr20(X::Matrix{Int})
     k = size(X, 2)
     p = item_difficulty_ctt(X)
     q = 1 .- p
-    V = var(total_scores(X))
+    V = var(total_scores(X); corrected = false)
 
     r = (k / (k - 1)) * (1 - (sum(p .* q) / V))
 

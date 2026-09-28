@@ -57,7 +57,7 @@ julia> X = [1 0 1; 0 1 1; 1 1 0];
 
 julia> item_difficulty_ctt(X)
 1×3 Matrix{Float64}:
- 0.666667  0.666667  0.333333
+ 0.666667  0.666667  0.666667
 ```
 """
 function item_difficulty_ctt(X::Matrix{Int})
