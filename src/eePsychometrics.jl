@@ -1,5 +1,7 @@
 module eePsychometrics
 
-# Write your package code here.
+include("simulate.jl")
+
+export simulate_1pl
 
 end
